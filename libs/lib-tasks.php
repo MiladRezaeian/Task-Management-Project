@@ -1,4 +1,6 @@
 <?php
+defined('BASE_PATH') || die("Permission Denied!");
+
 
 /* folder functions */
 function deleteFolder($folder_id)

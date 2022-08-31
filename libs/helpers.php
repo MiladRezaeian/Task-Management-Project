@@ -1,4 +1,5 @@
 <?php
+defined('BASE_PATH') || die("Permission Denied!");
 
 function getCurrentUrl()
 {
