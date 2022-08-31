@@ -43,8 +43,30 @@ function getCurrentUserId()
 }
 
 
-/* folder functions */
+/* task functions */
+function deleteTask($task_id)
+{
+    global $pdo;
+    $sql = "delete from tasks where id = $task_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    return $stmt->rowCount();
+}
+
 function getTasks()
 {
+    global $pdo;
+    $folder = $_GET['folder_id'] ?? null ;
+    $folderCondition = '';
+    if(isset($folder) and is_numeric($folder)){
+        $folderCondition = "and folder_id = $folder ";
+    }
+    $current_user_id = getCurrentUserId();
+    $sql = "select * from tasks where user_id = $current_user_id $folderCondition";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_OBJ);
 
+    return $records;
 }
