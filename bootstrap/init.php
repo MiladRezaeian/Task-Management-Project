@@ -1,8 +1,11 @@
 <?php
 
+
 require "constants.php";
-require "config.php";
-require "libs/helpers.php";
+//var_dump(BASE_PATH . "/bootstrap/config.php");die();
+require BASE_PATH . "/bootstrap/config.php";
+require BASE_PATH . "/libs/helpers.php";
+
 
 
 try {
@@ -11,5 +14,5 @@ try {
     diePage('Connection failed: ' . $e -> getMessage());
 }
 
-require "libs/lib-auth.php";
-require "libs/lib-tasks.php";
+require BASE_PATH . "/libs/lib-auth.php";
+require BASE_PATH . "/libs/lib-tasks.php";
