@@ -48,7 +48,6 @@
         <div class="functions">
           <div class="button active">Add New Task</div>
           <div class="button">Completed</div>
-          <div class="button inverz"><i class="fa fa-trash-o"></i></div>
         </div>
       </div>
       <div class="content">
@@ -97,6 +96,23 @@
                     }
                 });
             });
+            $('#taskNameInput').on('keypress',function (e) {
+                if(e.which == 13){
+                    $.ajax({
+                        url : "process/ajaxHandler.php",
+                        method : "post",
+                        data : {action: "addTask", folderId : <?= $_GET['folder_id'] ?> ,taskTitle: $('#taskNameInput').val()},
+                        success : function (response){
+                            if(response == '1'){
+                                location.reload();
+                            }else{
+                                alert(response);
+                            }
+                        }
+                    });
+                }
+            });
+            $(#taskNameInput).focus();
         });
     </script>
 

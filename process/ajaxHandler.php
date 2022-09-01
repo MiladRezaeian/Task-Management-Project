@@ -18,7 +18,17 @@ switch ($_POST['action']) {
         echo addFolder($_POST['folderName']);
         break;
     case "addTask";
-//        var_dump($_POST);
+        $folderId = $_POST['folderId'];
+        $taskTitle = $_POST['taskTitle'];
+        if(!isset($folderId) || empty($folderId)){
+            echo 'Choose the folder you want to add task in it.';
+            die();
+        }
+        if(!isset($taskTitle) || strlen($taskTitle) < 3) {
+            echo 'Title of task should be more than 2 character.';
+            die();
+        }
+        echo addTask($taskTitle, $folderId);
         break;
     default:
         diePage("Invalid Action!");
