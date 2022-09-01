@@ -78,3 +78,13 @@ function addTask($taskTitle, $folderId){
     $stmt->execute(['title'=>$taskTitle, 'user_id'=>$current_user_id, 'folder_id'=>$folderId]);
     return $stmt->rowCount();
 }
+
+function doneSwitch($task_id)
+{
+    global $pdo;
+    $current_user_id = getCurrentUserId();
+    $sql = "UPDATE tasks set is_done = 1 - is_done where user_id = :userID and id = :taskID";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':taskID'=>$task_id, ':userID'=>$current_user_id]);
+    return $stmt->rowCount();
+}

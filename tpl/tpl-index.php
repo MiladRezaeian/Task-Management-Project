@@ -23,7 +23,9 @@
       <div class="menu">
         <div class="title">Folders</div>
         <ul class="folder-list">
-            <li class="<?= isset($_GET['folder_id']) ? '' : 'active' ?>"> <i class="fa fa-folder"></i>All</li>
+            <li class="<?= isset($_GET['folder_id']) ? '' : 'active' ?>">
+                <a href="<?= site_url() ?>"><i class="fa fa-folder"></i>All</a>
+            </li>
 
             <?php foreach ($folders as $folder): ?>
                 <li class="<?= ($_GET['folder_id'] == $folder->id) ? 'active' : '' ?>">
@@ -58,7 +60,7 @@
               <?php if(sizeof($tasks) > 0) : ?>
               <?php foreach ($tasks as $task): ?>
                 <li class="<?= $task->is_done ? 'checked' : ''; ?>">
-                    <i class="fa <?= $task->is_done ? 'fa-check-square-o' : 'fa-square-o'; ?>"></i>
+                    <i data-taskId="<?= $task->id ?>" class="isDone clickable fa <?= $task->is_done ? 'fa-check-square-o' : 'fa-square-o'; ?>"></i>
                     <span><?= $task->title ?></span>
                   <div class="info">
                     <span class="created-at">Created At <?= $task->created_at ?></span>
@@ -81,6 +83,19 @@
     <script src="<?= BASE_URL ?>assets/js/script.js"></script>
     <script>
         $(document).ready(function () {
+            $('.isDone').click(function (e) {
+                var tid = $(this).attr('data-taskId');
+
+                $.ajax({
+                    url : "process/ajaxHandler.php",
+                    method : "post",
+                    data : {action: "doneSwitch", taskId: tid},
+                    success : function (response){
+                        location.reload();
+                    }
+                });
+
+            });
             $('#addFolderBtn').click(function () {
                 var input =  $('input#addFolderInput');
                 $.ajax({
@@ -101,7 +116,7 @@
                     $.ajax({
                         url : "process/ajaxHandler.php",
                         method : "post",
-                        data : {action: "addTask", folderId : <?= $_GET['folder_id'] ?> ,taskTitle: $('#taskNameInput').val()},
+                        data : {action: "addTask", folderId : <?= $_GET['folder_id'] ?? 0 ?> ,taskTitle: $('#taskNameInput').val()},
                         success : function (response){
                             if(response == '1'){
                                 location.reload();
@@ -112,7 +127,7 @@
                     });
                 }
             });
-            $(#taskNameInput).focus();
+            $('#taskNameInput').focus();
         });
     </script>
 

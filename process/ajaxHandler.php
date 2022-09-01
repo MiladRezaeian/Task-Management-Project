@@ -10,8 +10,16 @@ if (!isset($_POST['action']) || empty($_POST['action'])) {
 }
 
 switch ($_POST['action']) {
+    case "doneSwitch";
+        $task_id = $_POST['taskId'];
+        if (!isset($task_id) || !is_numeric($task_id)) {
+            echo 'Task id is not valid.';
+            die();
+        }
+        doneSwitch($task_id);
+        break;
     case "addFolder";
-        if(!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3){
+        if (!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3) {
             echo 'Name of folder should be more than 2 character.';
             die();
         }
@@ -20,11 +28,11 @@ switch ($_POST['action']) {
     case "addTask";
         $folderId = $_POST['folderId'];
         $taskTitle = $_POST['taskTitle'];
-        if(!isset($folderId) || empty($folderId)){
+        if (!isset($folderId) || empty($folderId)) {
             echo 'Choose the folder you want to add task in it.';
             die();
         }
-        if(!isset($taskTitle) || strlen($taskTitle) < 3) {
+        if (!isset($taskTitle) || strlen($taskTitle) < 3) {
             echo 'Title of task should be more than 2 character.';
             die();
         }
