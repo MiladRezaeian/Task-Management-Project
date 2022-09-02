@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a30b4ef5-b9bf-4a4e-a785-f34e10a7b77c" name="Changes" comment="" />
+    <list default="true" id="a30b4ef5-b9bf-4a4e-a785-f34e10a7b77c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/README.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/dist/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/dist/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/src/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/login-signup/src/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/lib-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/lib-auth.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +79,7 @@
       <workItem from="1661930577495" duration="19089000" />
       <workItem from="1662023295027" duration="1577000" />
       <workItem from="1662027721115" duration="13014000" />
-      <workItem from="1662110545059" duration="10956000" />
+      <workItem from="1662110545059" duration="11303000" />
     </task>
     <servers />
   </component>

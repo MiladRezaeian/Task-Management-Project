@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 30, 2022 at 07:40 PM
+-- Generation Time: Sep 02, 2022 at 09:05 PM
 -- Server version: 10.4.26-MariaDB
 -- PHP Version: 7.4.30
 
@@ -40,8 +40,13 @@ CREATE TABLE `folders` (
 
 INSERT INTO `folders` (`id`, `user_id`, `name`, `created_at`) VALUES
 (1, 1, 'personal', '2022-08-28 13:15:00'),
-(2, 1, 'work', '2022-08-28 13:15:00'),
-(3, 1, 'daily', '2022-08-28 13:15:26');
+(4, 1, 'sasa', '2022-08-31 18:46:14'),
+(6, 1, 'asd', '2022-08-31 19:15:27'),
+(7, 1, 'fdg', '2022-08-31 19:22:29'),
+(8, 1, 'fdgdfg', '2022-08-31 19:22:31'),
+(9, 3, 'asd', '2022-09-02 19:42:33'),
+(10, 4, 'personal', '2022-09-02 20:51:23'),
+(11, 4, 'work', '2022-09-02 20:51:29');
 
 -- --------------------------------------------------------
 
@@ -63,7 +68,16 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `title`, `user_id`, `folder_id`, `is_done`, `created_at`) VALUES
-(1, 'first task', 1, 1, 0, '2022-08-29 19:08:09');
+(1, 'first task', 1, 1, 0, '2022-08-29 19:08:09'),
+(3, 'sfg', 1, 4, 1, '2022-09-01 19:23:58'),
+(4, 'sfgasd', 1, 4, 1, '2022-09-01 19:24:00'),
+(5, 'sfgasdasd', 1, 4, 0, '2022-09-01 19:24:02'),
+(6, 'asfas', 1, 4, 0, '2022-09-01 19:25:37'),
+(7, 'gfsdg', 1, 4, 0, '2022-09-01 19:25:40'),
+(8, 'Ù†ØªØ¯', 1, 4, 0, '2022-09-01 21:12:46'),
+(9, 'asdas', 3, 9, 0, '2022-09-02 19:42:46'),
+(10, 'sdfsd', 4, 10, 0, '2022-09-02 21:03:36'),
+(11, 'jbk', 4, 10, 0, '2022-09-02 21:03:38');
 
 -- --------------------------------------------------------
 
@@ -84,7 +98,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(1, 'milad rezaeian', 'mmm@mmm.com', 'asdas', '2022-08-28 13:09:27');
+(3, 'ali', 'ali@ali.com', '$2y$10$96Pd36K0RnDvcBpMliBdRuFco6xPLQh05PaFPRbwwXFbLJ5DEYiW2', '2022-09-02 18:01:12'),
+(4, 'milad', 'milad@milad.com', '$2y$10$uQWwaGX61xizS2ZWjzto9OVCs5cKW0OetP6p8AlthsDaGXFdpH8dW', '2022-09-02 20:50:44');
 
 --
 -- Indexes for dumped tables
@@ -106,7 +121,8 @@ ALTER TABLE `tasks`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -116,19 +132,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `folders`
 --
 ALTER TABLE `folders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
