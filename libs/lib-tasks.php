@@ -30,9 +30,7 @@ function getFolders()
     $sql = "select * from folders where user_id = $current_user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $records = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-    return $records;
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 
 function getCurrentUserId()

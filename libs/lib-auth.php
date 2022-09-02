@@ -13,5 +13,11 @@ function login($username, $password)
 
 function register($userData)
 {
-    return 1;
+    global $pdo;
+    # validation email username and password
+    $passwordHash = password_hash($userData['password'],PASSWORD_BCRYPT);
+    $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password);";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':name'=>$userData['name'], ':email'=>$userData['email'], ':password'=>$passwordHash]);
+    return (bool)$stmt->rowCount();
 }
