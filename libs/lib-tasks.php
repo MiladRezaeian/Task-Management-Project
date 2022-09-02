@@ -1,7 +1,6 @@
 <?php
 defined('BASE_PATH') || die("Permission Denied!");
 
-
 /* folder functions */
 function deleteFolder($folder_id)
 {
@@ -19,7 +18,8 @@ function addFolder($folder_name)
     $current_user_id = getCurrentUserId();
     $sql = "INSERT INTO folders (name, user_id) VALUES (:folder_name, :user_id)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['folder_name'=>$folder_name, 'user_id'=>$current_user_id]);
+    $stmt->execute(['folder_name' => $folder_name, 'user_id' => $current_user_id]);
+
     return $stmt->rowCount();
 }
 
@@ -30,15 +30,9 @@ function getFolders()
     $sql = "select * from folders where user_id = $current_user_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
+
     return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
-
-function getCurrentUserId()
-{
-    // get login user id
-    return 1;
-}
-
 
 /* task functions */
 function deleteTask($task_id)
@@ -54,26 +48,27 @@ function deleteTask($task_id)
 function getTasks()
 {
     global $pdo;
-    $folder = $_GET['folder_id'] ?? null ;
+    $folder = $_GET['folder_id'] ?? null;
     $folderCondition = '';
-    if(isset($folder) and is_numeric($folder)){
+    if (isset($folder) and is_numeric($folder)) {
         $folderCondition = "and folder_id = $folder ";
     }
     $current_user_id = getCurrentUserId();
     $sql = "select * from tasks where user_id = $current_user_id $folderCondition";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $records = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-    return $records;
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 
-function addTask($taskTitle, $folderId){
+function addTask($taskTitle, $folderId)
+{
     global $pdo;
     $current_user_id = getCurrentUserId();
     $sql = "INSERT INTO tasks (title, user_id, folder_id) VALUES (:title, :user_id, :folder_id)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute(['title'=>$taskTitle, 'user_id'=>$current_user_id, 'folder_id'=>$folderId]);
+    $stmt->execute(['title' => $taskTitle, 'user_id' => $current_user_id, 'folder_id' => $folderId]);
+
     return $stmt->rowCount();
 }
 
@@ -83,6 +78,7 @@ function doneSwitch($task_id)
     $current_user_id = getCurrentUserId();
     $sql = "UPDATE tasks set is_done = 1 - is_done where user_id = :userID and id = :taskID";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':taskID'=>$task_id, ':userID'=>$current_user_id]);
+    $stmt->execute([':taskID' => $task_id, ':userID' => $current_user_id]);
+
     return $stmt->rowCount();
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title><?= SITE_TITLE ?> - Authentication</title>
@@ -19,7 +19,7 @@
                     <button type="Submit">Log In</button>
                 </form>
             </div>
-            <div class="auth-form" id="signup" >
+            <div class="auth-form" id="signup">
                 <div id="form-title">Register</div>
                 <form action="<?= site_url('auth.php?action=register') ?>" method="POST">
                     <input name="name" type="text" required="required" placeholder="Username"/>
@@ -38,7 +38,7 @@
 </div>
 <!-- partial -->
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script  src="<?= site_url('assets/js/auth-script.js') ?>"></script>
+<script src="<?= site_url('assets/js/auth-script.js') ?>"></script>
 
 </body>
 </html>
