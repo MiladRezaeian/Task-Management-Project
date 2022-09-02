@@ -4,10 +4,7 @@
     <list default="true" id="a30b4ef5-b9bf-4a4e-a785-f34e10a7b77c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/lib-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/lib-auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lib-tasks.php" beforeDir="false" afterPath="$PROJECT_DIR$/libs/lib-tasks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tpl/tpl-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/tpl/tpl-auth.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
       <workItem from="1661930577495" duration="19089000" />
       <workItem from="1662023295027" duration="1577000" />
       <workItem from="1662027721115" duration="13014000" />
-      <workItem from="1662110545059" duration="3082000" />
+      <workItem from="1662110545059" duration="6091000" />
     </task>
     <servers />
   </component>

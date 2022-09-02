@@ -6,9 +6,25 @@ function isLoggedIn()
     return false;
 }
 
-function login($username, $password)
+function login($email, $password)
 {
-    return 1;
+    $user = getUserByEmail($email);
+    if (is_null($user)){
+        return false;
+    }
+    if(password_verify($password, $user->password)){
+        return true;
+    }
+    return false;
+}
+
+function getUserByEmail($email)
+{
+    global $pdo;
+    $sql = "SELECT * FROM users WHERE email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':email'=>$email]);
+    return $stmt->fetchAll(PDO::FETCH_OBJ)[0] ?? null;
 }
 
 function register($userData)
